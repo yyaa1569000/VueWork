@@ -1,27 +1,53 @@
 var app = new Vue({
     el: '#app',
     data: {
+        
         newTodo: '',
         newNumber: '',
+        
+        
         todos: [
             {
                 id: '',
-                title: '測試',
-                number: '100',
-                price: '100'
-            }
+                title: '吹風機',
+                number: '300',
+                price: '300'
+            },
+            {
+                id: '',
+                title: '麥克風',
+                number: '9000',
+                price: '9000'
+            },
+            {
+                id: '',
+                title: '筆記型電腦',
+                number: '29000',
+                price: '29000'
+            },
+            {
+                id: '',
+                title: 'IPhone9',
+                number: '28500',
+                price: '28500'
+            },
+            {
+                id: '',
+                title: '神奇海螺',
+                number: '443300',
+                price: '443300'
+            },
         ],
+        amount:0,
 
 
     },
-    // computed:{
-
-    // },
+    
     methods: {
         addTodo: function () {
             var value = this.newTodo.trim();
             var number = this.newNumber.trim();
-            var price = parseInt(number) + parseInt(number);
+            var price = parseInt(number);
             var timestamp = Math.floor(Date.now());
             console.log(value, number, timestamp);
             if (!value) {
@@ -29,12 +55,15 @@ var app = new Vue({
             } else if (!number) {
                 return;
             }
+            
 
             this.todos.push({
                 id: timestamp,
                 title: value,
                 number: number,
                 price: price,
+                
+                
             });
             this.newTodo = ''
             this.newNumber = ''
@@ -50,5 +79,16 @@ var app = new Vue({
             this.todos.splice(newIndex, 1);
         },
 
-    }
+    },
+    computed: {
+        calAmount:function(){
+            var prices = this.todos.map(item => item.price);
+
+           return prices.reduce(function(prev,current){
+                this.amount = parseInt(prev) + parseInt(current);
+                return this.amount;
+            }, 0)
+            
+        }
+    },
 })

@@ -50,14 +50,15 @@
                         
                         <div class="py-3">
                             
-                            <ol class="row px-3 pb-2 list-group list-group-numbered" v-for="(item,key) in todos">
-                                <li class="list-group-item col p-1 border border-dark border-3 d-flex justify-content-between align-items-center">
-                                    
-                                    <span class="col-md-9">
+                            <div class="row px-3 pb-2">
+                                <ol class="list-group list-group-numbered" >
+                                <li class="list-group-item col m-1 p-1 border border-dark border-3 d-flex justify-content-between align-items-center" v-for="(item,key) in todos">
+                                    <div class="col-md-8">
+                                        
                                        {{item.title}}
-                                    </span>
-                                    <div class="col-md-3">
-                                        <div class="row d-flex align-items-center justify-content-between">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="row d-flex align-items-center justify-content-end">
                                             <span class="col-auto bg-warning fw-bold text-end">
                                                 ${{item.number}}
                                             </span>
@@ -66,18 +67,20 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </li>
-                            </ol>
+                                </ol>
+                            </div>
                             
                             <div class="row px-3 pb-2" >
                                 <div class="col bg-danger p-1 border border-dark border-3 d-flex justify-content-between align-items-center">
                                     <div class="col-md-9 text-white">
                                         總價
                                     </div>
-                                    <div class="col-md-3" v-for="(item,key) in todos">
-                                        <div class="row d-flex align-items-center">
+                                    <div class="col-md-3">
+                                        <div class="row d-flex align-items-center" >
                                             <span class="col-auto text-white fw-bold">
-                                                ${{item.price}}元
+                                                ${{calAmount}}
                                             </span>
                                             
                                             
