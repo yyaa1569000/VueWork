@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/all.css">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    
+    <div class="container bg-warning" id="app">
+        <div class="row p-5">
+
+            <div class="d-flex justify-content-center">
+                <div class="box shadow-lg mb-5 bg-body rounded border border-dark border-4">
+                    <div class="bg-danger p-3 border-bottom border-dark border-4">
+                        <div class="text-white fw-bold fs-4">MyBuylist 購物清單</div>
+                    </div>
+                    <div class="p-3">
+                        
+                        <form>
+                            <div class="row g-1 p-3 align-items-center border border-dark border-3 needs-validation">
+                                <div class="col-md-auto">
+                                    <label for="inputproduct" class="col-form-label fw-bold productname">產品名</label>
+                                </div>
+                                <div class="col-md-auto">
+                                    <input type="text" id="inputproduct"
+                                        class="inputproduct name form-control-sm form-control border border-dark border-3 rounded-0" placeholder="名稱" required v-model="newTodo" @keyup.enter="addTodo">
+                                </div>
+                                <div class="col-md-auto">
+                                    <label for="inputprice" class="Price col-form-label fw-bold">價格</label>
+                                </div>
+                                <div class="col-md-auto">
+                                    <input type="number" id="inputprice" class="number form-control-sm form-control border border-dark border-3 rounded-0" placeholder="數字" required v-model="newNumber" @keyup.enter="addTodo">
+                                </div>
+                                <div class="col-md-auto">
+                                    <button class="send btn-sm btn btn-link text-decoration-none text-dark border border-dark border-3 rounded-0 fw-bold"  @click="addTodo">+新增</button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <div class="py-3">
+                            
+                            <ol class="row px-3 pb-2 list-group list-group-numbered" v-for="(item,key) in todos">
+                                <li class="list-group-item col p-1 border border-dark border-3 d-flex justify-content-between align-items-center">
+                                    
+                                    <span class="col-md-9">
+                                       {{item.title}}
+                                    </span>
+                                    <div class="col-md-3">
+                                        <div class="row d-flex align-items-center justify-content-between">
+                                            <span class="col-auto bg-warning fw-bold text-end">
+                                                ${{item.number}}
+                                            </span>
+                                            <div class="col-auto">
+                                            <a href="#" class="text-dark pe-3" @click="removeTodo(item)"><i class="fas fa-times"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                            
+                            <div class="row px-3 pb-2" >
+                                <div class="col bg-danger p-1 border border-dark border-3 d-flex justify-content-between align-items-center">
+                                    <div class="col-md-9 text-white">
+                                        總價
+                                    </div>
+                                    <div class="col-md-3" v-for="(item,key) in todos">
+                                        <div class="row d-flex align-items-center">
+                                            <span class="col-auto text-white fw-bold">
+                                                ${{item.price}}元
+                                            </span>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+    
+
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+
+    <script src="js/all.js"></script>
+</body>
+
+</html>
